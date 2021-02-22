@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 
 const ArtistDetails = ({ match }) => {
     let [artist, setArtist] = useState({});
-    let url = `http://localhost:3001/artists/${match.params.id}`;
+    let url = `https://api.jsonbin.io/b/6032f51cf1be644b0a62a9a4/1/${match.params.id}`;
     const renderArtist = (artist)=>{
         if (artist.id){
             let images = `/images/covers/${artist.cover}.jpg`;
