@@ -5,7 +5,15 @@ import { useState, useEffect } from 'react'
 
 const ArtistDetails = ({ match }) => {
     let [artist, setArtist] = useState({});
-    let url = `https://api.jsonbin.io/b/6032f51cf1be644b0a62a9a4/1/${match.params.id}`;
+    let url = `https://api.jsonbin.io/b/6032f51cf1be644b0a62a9a4/1`;
+    console.log(artist)
+    for(let i = 0; i<artist.length; i++){
+        console.log("lefy")
+        if(artist[i].id == match.params.id){
+            setArtist(artist[i])
+            console.log("ah sah")
+        }
+    }
     const renderArtist = (artist)=>{
         if (artist.id){
             let images = `/images/covers/${artist.cover}.jpg`;
@@ -52,7 +60,6 @@ const ArtistDetails = ({ match }) => {
             })
 
     }, [])
-
     return (
         <div>
             {renderArtist(artist)}
